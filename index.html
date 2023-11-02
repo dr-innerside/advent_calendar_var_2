@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <div class='support-grid'></div>
 <section class='grid-1'>
   <div class='title'>
@@ -254,9 +255,34 @@
   </div>
 </section>
 <footer>
-  <a href='http://webdesign.tutsplus.com/tutorials/how-to-build-a-festive-advent-calendar-with-css-grid--cms-30070'>
-  Copyright ⓒ TeamSparta All rights reserved. ☃️
-  </a>
+  <p>Copyright ⓒ TeamSparta All rights reserved. ☃️</p>
+  <button id="shareButton">Share this page</button>
 </footer>
 </body>
+
+<script>
+  document.getElementById('shareButton').addEventListener('click', async () => {
+  try {
+    // Check if the Web Share API is available
+    if (!navigator.share) {
+      alert('Web Share API is not available on your browser.');
+      return;
+    }
+
+    // Your share data
+    const shareData = {
+      title: 'Web Share Example',
+      text: 'Check out this web share example!',
+      url: window.location.href
+    };
+
+    // Invoke the share dialog
+    await navigator.share(shareData);
+    console.log('Data was shared successfully');
+  } catch (err) {
+    console.error('Share failed:', err.message);
+  }
+});
+
+</script>
 </html>
