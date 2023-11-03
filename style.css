@@ -261,9 +261,8 @@ label:hover .door {
 }
 
 :checked + .door {
-  transform: rotateY(180deg);
+  transform: rotateY(540deg);
 }
-  
 
 /* footer styles */
 footer {
@@ -280,16 +279,60 @@ footer {
 
 
 #shareButton {
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 0.8em;
+  font-size: 100%; /* 상속받은 기본 폰트 크기를 사용 */
   color: white;
   background-color: #007BFF;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  /* 화면 크기에 따라 버튼 크기 조정 */
+  width: 80%; /* 대부분의 화면에서 버튼 너비 */
+  max-width: 150px; /* 버튼의 최대 너비 제한 */
+  margin: 10px auto; /* 중앙 정렬을 위한 자동 마진 */
 }
 
+/* 화면 크기가 작을 때의 스타일 */
+@media (max-width: 768px) {
+  #shareButton {
+    width: 90%; /* 더 작은 화면에서 버튼 너비를 늘림 */
+    padding: 0.75em;
+    font-size: 90%; /* 작은 화면에서 폰트 크기 줄임 */
+  }
+}
+
+/* 호버 효과는 모든 화면 크기에 적용 */
 #shareButton:hover {
   background-color: #0056b3;
+}
+
+/* 모달 기본 스타일 */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+}
+
+/* 모달 컨텐트 기본 스타일 */
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 4px;
+  text-align: center;
+  /* 초기 상태는 작게 표시 */
+  transform: scale(0);
+  transition: transform 0.5s ease;
+}
+
+/* 확대 애니메이션 */
+.zoomIn {
+  transform: scale(16); /* 확대될 크기 */
 }
