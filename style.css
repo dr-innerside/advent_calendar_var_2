@@ -269,33 +269,39 @@ footer {
   text-align: center;
   padding: 2em 0;
 }  
-  footer a {
-      color: #2e313d;
-  } 
-    footer a:hover {
-          text-decoration: none;
-    }
 
-
-
-#shareButton {
+button {
   padding: 0.8em;
   font-size: 100%; /* 상속받은 기본 폰트 크기를 사용 */
   color: white;
-  background-color: #007BFF;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+
   /* 화면 크기에 따라 버튼 크기 조정 */
   width: 80%; /* 대부분의 화면에서 버튼 너비 */
   max-width: 150px; /* 버튼의 최대 너비 제한 */
   margin: 10px auto; /* 중앙 정렬을 위한 자동 마진 */
 }
 
+#shareButton {
+  background-color: #007BFF;
+  transition: background-color 0.3s ease;
+}
+
+#studyButton {
+  background-color: #E8334E;
+}
+
+  #studyButton a {
+    color:white;
+    text-decoration: none;
+  }
+
+
 /* 화면 크기가 작을 때의 스타일 */
 @media (max-width: 768px) {
-  #shareButton {
+  #shareButton, #studyButton {
     width: 90%; /* 더 작은 화면에서 버튼 너비를 늘림 */
     padding: 0.75em;
     font-size: 90%; /* 작은 화면에서 폰트 크기 줄임 */
@@ -305,6 +311,11 @@ footer {
 /* 호버 효과는 모든 화면 크기에 적용 */
 #shareButton:hover {
   background-color: #0056b3;
+}
+
+/* 호버 효과는 모든 화면 크기에 적용 */
+#studyButton:hover {
+  background-color: #b30413;
 }
 
 /* 모달 기본 스타일 */
