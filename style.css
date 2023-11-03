@@ -1,4 +1,4 @@
-body {
+body{
   background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/snow-bg.svg) no-repeat top center #82d8cb;
   background-size: cover;
 }
@@ -248,12 +248,12 @@ label {
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2);
 }
 
-.door .back {
+.door .back{
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
     background-color: #2e313d;
-    transform: rotateY(180deg);
+    transform: rotateY(540deg);
 }
 
 label:hover .door {
@@ -317,22 +317,33 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
   z-index: 1000;
 }
 
 /* 모달 컨텐트 기본 스타일 */
 .modal-content {
-  background-color: white;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #2e313d;
+
   padding: 20px;
   border-radius: 4px;
   text-align: center;
-  /* 초기 상태는 작게 표시 */
-  transform: scale(0);
-  transition: transform 0.5s ease;
+
+
 }
 
-/* 확대 애니메이션 */
+/* 확대 및 회전 애니메이션 */
+@keyframes zoomAndRotate {
+  from {
+    transform: scale(0) rotateY(0deg); /* 초기 상태 */
+  }
+  to {
+    transform: scale(16) rotateY(720deg); /* 최종 상태 */
+  }
+}
+
 .zoomIn {
-  transform: scale(16); /* 확대될 크기 */
+  animation: zoomAndRotate 0.5s ease forwards; /* 애니메이션 적용 */
 }

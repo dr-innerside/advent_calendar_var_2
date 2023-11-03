@@ -267,38 +267,41 @@ const doors = document.querySelectorAll('.door');
 
 // 각 'door'에 대하여 클릭 이벤트 리스너를 추가합니다.
 doors.forEach(door => {
-  door.addEventListener('click', (e) => {
-    // 체크박스가 아닌 'door' 자체나 'front' div를 클릭했을 때만 모달을 표시합니다.
-    if (e.target !== door.querySelector('input[type="checkbox"]')) {
-      // 모달 내용을 'back' 요소로 설정합니다.
-      const modalContent = door.querySelector('.back').innerHTML;
-      
-      backDiv.addEventListener('animationed', showModal(modalContent))
-    }
+  door.addEventListener('click', () => {
+    const backDiv = door.querySelector('.back');
+
+    const style = window.getComputedStyle(backDiv);
+    const backgroundImageUrl = style.backgroundImage.slice(4, -1).replace(/"/g, "");
+    console.log(backgroundImageUrl)
+    showModal(backgroundImageUrl);
   });
 });
 
-// 모달을 표시하는 함수
-function showModal(content) {
-  // 모달 요소를 생성합니다.
+// Function to display modal
+function showModal(backgroundImageUrl) {
+  // Create a modal element.
   const modal = document.createElement('div');
   modal.classList.add('modal');
 
-  // 모달 컨텐트를 설정합니다.
+  // Set up the modal content.
   const modalContent = document.createElement('div');
   modalContent.classList.add('modal-content');
-  modalContent.innerHTML = content;
+  modalContent.style.backgroundImage = `url(${backgroundImageUrl})`
+  //   // Create an img element and set the src to the background image URL
+//   const image = new Image();
+//   image.src = imageUrl;
+//   image.classList.add('modal-image'); // Add class for styling if needed
   
-  // 모달에 컨텐트를 추가합니다.
+  // Add content to the modal.
   modal.appendChild(modalContent);
   
-  // 모달을 body에 추가합니다.
+  // Add the modal to the body.
   document.body.appendChild(modal);
 
-  // 모달에 애니메이션을 추가합니다.
+  // Add animation to the modal.
   modalContent.classList.add('zoomIn');
 
-  // 모달 바깥쪽을 클릭하면 모달을 닫습니다.
+  // Close the modal when you click outside the modal.
   modal.addEventListener('click', () => {
     document.body.removeChild(modal);
   });
