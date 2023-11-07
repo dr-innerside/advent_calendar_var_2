@@ -1,6 +1,10 @@
 body{
   background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/snow-bg.svg) no-repeat top center #82d8cb;
   background-size: cover;
+  /* width: 100vw; 뷰포트 너비의 100% */
+  /* height: 100vh; 뷰포트 높이의 100% */
+  /* margin: 0; */
+  /* padding: 0; */
 }
 
 /* title graphic */
@@ -18,8 +22,8 @@ body{
 /* mobile first grid layout */
 .grid-1 {
   display: grid;
-  width: 96%;
-  max-width: 900px;
+  width: 90vw;
+  max-width: 900px;    
   margin: 2% auto;
   
   grid-template-columns: repeat(3, 1fr);
@@ -41,6 +45,7 @@ body{
 @media only screen and (min-width: 500px) {
   
   .grid-1 {
+    /* 너비를 기준으로 높이를 계산 */
     grid-template-columns: repeat(6, 1fr);
     grid-template-areas: "t     t     t     d2      d7      d8"
                          "t     t     t     d4      d11     d12"
@@ -324,6 +329,7 @@ button {
   justify-content: center;
   align-items: center;
   position: fixed;
+  flex-direction: column;
   top: 0;
   left: 0;
   width: 100%;
@@ -332,29 +338,74 @@ button {
 }
 
 /* 모달 컨텐트 기본 스타일 */
-.modal-content {
+/* .modal-content {
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
   background-color: #2e313d;
 
   padding: 20px;
+  width: 50%;
+  height: 50%;
   border-radius: 4px;
   text-align: center;
 
-
-}
+} */
 
 /* 확대 및 회전 애니메이션 */
 @keyframes zoomAndRotate {
   from {
-    transform: scale(0) rotateY(0deg); /* 초기 상태 */
+    transform: scale(0) rotateY(0deg); 
   }
   to {
-    transform: scale(16) rotateY(720deg); /* 최종 상태 */
+    transform: scale(1) rotateY(360deg); 
   }
 }
 
+/* 애니메이션 적용 */
 .zoomIn {
-  animation: zoomAndRotate 0.5s ease forwards; /* 애니메이션 적용 */
+  animation: zoomAndRotate 0.5s ease forwards; 
+}
+
+
+.hidden {
+  visibility: hidden;
+}   
+
+/* ver2 */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+.modal-content {
+  padding: 20px;
+  background-color: #2e313d; /* 배경색을 지정합니다. */
+  padding: 20px;
+  border-radius: 4px;
+  text-align: center;
+  overflow: hidden; /* 내용이 넘칠 경우 숨깁니다. */
+}
+
+/* 이미지와 텍스트가 있는 카드를 위한 스타일 */
+.modal-content img {
+  border-top-left-radius: 4px; /* 이미지 상단에 둥근 모서리를 적용합니다. */
+  border-top-right-radius: 4px;
+}
+
+.modal-content p {
+  background-color: #2e313d; /* 텍스트 배경색을 지정합니다. */
+  color: #fff; /* 텍스트 색상을 지정합니다. */
+  margin: 0; /* 마진을 제거합니다. */
+  padding: 10px; /* 패딩을 추가합니다. */
+  border-bottom-left-radius: 4px; /* 텍스트 하단에 둥근 모서리를 적용합니다. */
+  border-bottom-right-radius: 4px;
 }
