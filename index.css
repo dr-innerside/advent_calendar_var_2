@@ -297,17 +297,23 @@ body{
   
     /* 화면 크기에 따라 버튼 크기 조정 */
     width: 80%; /* 대부분의 화면에서 버튼 너비 */
+    height: 4rem;
     max-width: 150px; /* 버튼의 최대 너비 제한 */
     margin: 10px auto; /* 중앙 정렬을 위한 자동 마진 */
   }
   
   #shareButton {
-    background-color: #007BFF;
+    background-color: #fff;
+    color: #e8344e;
+    font-weight: bold;
     transition: background-color 0.3s ease;
   }
   
   #studyButton {
     background-color: #E8334E;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
   }
   
     #studyButton a {
@@ -327,12 +333,12 @@ body{
   
   /* 호버 효과는 모든 화면 크기에 적용 */
   #shareButton:hover {
-    background-color: #0056b3;
+    background-color: #fae1e1;
   }
   
   /* 호버 효과는 모든 화면 크기에 적용 */
   #studyButton:hover {
-    background-color: #b30413;
+    background-color: #bc2a40;
   }
   
   /* 모달 기본 스타일 */
@@ -472,21 +478,19 @@ body{
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
     inset: 0 0 0 0;
-    background: hsl(231, 57%, 45%);
+    background: rgba(255,255,255,0.7);
+    border-radius: 12px;
     z-index: -1;
     transition: transform .3s ease;
   }
   
   .sound {
     position: relative;
-    font-size: 1.5rem;
-    width: 7rem;
+    font-size: 2rem;
+    width: 3rem;
     color: white;
     text-align: center;
-  }
-
-  .stop::before {
-    background: #E8334E;
+    margin: 0.5rem;
   }
 
   .flex-row {
@@ -497,7 +501,8 @@ body{
     width: 25rem;
     font-size: 1rem;
   }
-  
-  .copyright::before {
-    background: black;
+
+  button {
+    margin: 0 0.5rem;
+    width: 7rem;
   }
