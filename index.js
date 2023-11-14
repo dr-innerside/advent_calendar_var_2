@@ -71,7 +71,9 @@ function showModal(imageUrl, text) {
 
     // 이미지를 표시할 요소를 생성합니다.
     const image = document.createElement('div');
-    image.src = imageUrl;
+    // image.src = imageUrl;
+    console.log(imageUrl)
+    image.style.backgroundImage = `url(${imageUrl})`
     image.alt = 'Door Image';
     image.style.width = '100%'; // 이미지 너비를 조정합니다.
     image.style.height = '211px'; // 이미지 높이를 자동으로 조정합니다.
@@ -108,6 +110,11 @@ const doors = document.querySelectorAll('.door');
 // 각 'door'에 대하여 클릭 이벤트 리스너를 추가합니다.
 doors.forEach(door => {
     door.addEventListener('click', () => {
+        // 상위 div의 class 번호를 찾아서 image url에 사용합니다
+        const parentClassName = door.parentNode.parentNode.className;
+        const dayNumber = parentClassName.replace('day-', '');
+        const imageUrl = `image/card/card-${dayNumber}.png`;
+
         // 'back' 클래스를 가진 요소를 찾아 스타일을 가져옵니다.
         const backDiv = door.querySelector('.back');
 
@@ -115,10 +122,10 @@ doors.forEach(door => {
         const pTag = backDiv.querySelector('p')
         const text = pTag.textContent
 
-        const backgroundImageUrl = style.backgroundImage.slice(4, -1).replace(/"/g, "");
+        // const backgroundImageUrl = style.backgroundImage.slice(4, -1).replace(/"/g, "");
 
         // showModal 함수를 호출하여 모달을 표시합니다.
-        showModal(backgroundImageUrl, text);
+        showModal(imageUrl, text);
     });
 });
 

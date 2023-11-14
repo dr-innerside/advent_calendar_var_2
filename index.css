@@ -425,7 +425,7 @@ body{
   .modal-content div {
     /* border-top-left-radius: 4px; 
     border-top-right-radius: 4px; */
-    background-image: url("image/modalImg.png");
+    /* background-image: url("image/modalImg.png"); */
     background-size: cover;
     background-position: center;
     border-radius: 12px;
