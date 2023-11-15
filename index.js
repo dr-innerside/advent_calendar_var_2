@@ -121,7 +121,7 @@ doors.forEach((door, index) => {
 });
 
 // 목표 날짜 설정 (예시: 2023년 1월 1일)
-const targetDate = new Date("2023-10-25T00:00:00Z");
+const targetDate = new Date("2023-11-25T00:00:00Z");
 
 function updateCountdown() {
     // 현재 한국 시간을 얻어오기
@@ -148,15 +148,13 @@ function handleClick(index) {
     const now = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Seoul" }));
 
     // 각 날짜에 해당하는 날짜를 계산
-    // const targetDate = new Date(2023, 11, index + 1); // 2023년 12월 1일부터 시작
+    const openDate = new Date(2023, 10, index + 1); // 2023년 12월 1일부터 시작
 
-    // 현재 날짜가 목표 날짜 이후인지 확인
-    if (now.getTime() > targetDate.getTime()) {
+    // 현재 날짜가 열 수 있는 날짜 이후인지 확인
+    if (now.getTime() > openDate.getTime()) {
         // 여기에 모달을 열거나 특정 동작을 수행하는 코드 추가
 
          // 상위 div의 class 번호를 찾아서 image url에 사용합니다
-         
-         
          const imageUrl = `image/card/card-${index+1}.png`;
  
          // 'back' 클래스를 가진 요소를 찾아 스타일을 가져옵니다.
@@ -167,8 +165,6 @@ function handleClick(index) {
          const pTag = backDiv.querySelector('p')
          const text = modalMessageList[index]
  
-         // const backgroundImageUrl = style.backgroundImage.slice(4, -1).replace(/"/g, "");
- 
          // showModal 함수를 호출하여 모달을 표시합니다.
          showModal(imageUrl, text);
         // alert('이벤트 캘린더를 엽니다.');
@@ -176,11 +172,13 @@ function handleClick(index) {
         // CSS 적용
         applyCss(index);
     } else {
-        // 현재 날짜가 목표 날짜보다 이전인 경우 몇 일 후에 열 수 있다는 메시지를 표시
-        const daysRemaining = Math.ceil((targetDate - now) / (1000 * 60 * 60 * 24));
+        // 현재 날짜가 열 수 있는 날짜보다 이전인 경우 몇 일 후에 열 수 있다는 메시지를 표시
+        const daysRemaining = Math.ceil((openDate - now) / (1000 * 60 * 60 * 24));
+        console.log(openDate, now, daysRemaining)
         alert(`이 날짜는 ${daysRemaining}일 후에 열 수 있습니다.`);
     }
 }
+
 
 function applyCss(index) {
     // 날짜에 맞지 않으면 해당 CSS를 적용하지 않음
