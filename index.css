@@ -454,6 +454,11 @@ body{
   :checked + .door {
     transform: rotateY(180deg);
   }
+
+  /* 날짜에 맞다면 적용되는 상호작용 css */
+  .opened:checked + .door {
+    transform: rotateY(180deg);
+}
   
   /* footer styles */
   footer {

@@ -16,17 +16,14 @@ function showModal(imageUrl, text) {
 
     // 이미지를 표시할 요소를 생성합니다.
     const image = document.createElement('div');
-    // image.src = imageUrl;
-    console.log(imageUrl)
-    image.style.backgroundImage = `url(${imageUrl})`
+    image.style.backgroundImage = `url(${imageUrl})`;
     image.alt = 'Door Image';
-    image.style.width = '100%'; // 이미지 너비를 조정합니다.
-    image.style.height = '211px'; // 이미지 높이를 자동으로 조정합니다.
+    image.style.width = '100%';
+    image.style.height = '211px';
 
     // 텍스트를 표시할 요소를 생성합니다.
     const textElement = document.createElement('p');
     textElement.textContent = text;
-    // textElement.style.color = '#fff'; // 텍스트 색상을 조정합니다.
 
     // 모달 컨텐트에 이미지와 텍스트를 추가합니다.
     modalContent.appendChild(image);
@@ -40,39 +37,12 @@ function showModal(imageUrl, text) {
         modal.remove(); // 모달을 문서에서 제거합니다.
     });
 
-    // Add animation to the modal.
-    // modalImgTag.classList.add('zoomIn');
-
     // 문서에 모달을 추가합니다.
     document.body.appendChild(modal);
     // 모달을 표시합니다.
     setTimeout(() => modal.classList.remove('hidden'), 0);
 }
 
-// 'door' 클래스를 가진 모든 요소에 대한 참조를 가져옵니다.
-const doors = document.querySelectorAll('.door');
-
-// 각 'door'에 대하여 클릭 이벤트 리스너를 추가합니다.
-doors.forEach(door => {
-    door.addEventListener('click', () => {
-        // 상위 div의 class 번호를 찾아서 image url에 사용합니다
-        const parentClassName = door.parentNode.parentNode.className;
-        const dayNumber = parentClassName.replace('day-', '');
-        const imageUrl = `image/card/card-${dayNumber}.png`;
-
-        // 'back' 클래스를 가진 요소를 찾아 스타일을 가져옵니다.
-        const backDiv = door.querySelector('.back');
-
-        const style = window.getComputedStyle(backDiv);
-        const pTag = backDiv.querySelector('p')
-        const text = modalMessageList[dayNumber-1]
-
-        // const backgroundImageUrl = style.backgroundImage.slice(4, -1).replace(/"/g, "");
-
-        // showModal 함수를 호출하여 모달을 표시합니다.
-        showModal(imageUrl, text);
-    });
-});
 
 
 
@@ -101,7 +71,7 @@ document.getElementById('shareButton').addEventListener('click', async () => {
 });
 
 
-//   배경음 실행 관련
+// 배경음 실행 관련
 document.addEventListener('DOMContentLoaded', function () {
     const soundElement = document.querySelector('.sound');
     const stopElement = document.querySelector('.stop');
@@ -116,7 +86,6 @@ document.addEventListener('DOMContentLoaded', function () {
         bgm.currentTime = 0;
     });
 });
-
 
 const modalMessageList = [
     "행복의 계절, 모두가 함께하는 24일!",
@@ -144,4 +113,65 @@ const modalMessageList = [
     "다 함께하는 24일, 행복한 느낌이 가득할 거예요.",
     "12월, 모두에게 기쁨과 행복이 넘치는 달이에요."
 ];
+
+// 전역에서 한 번만 실행되도록 클릭 이벤트 리스너를 등록
+const doors = document.querySelectorAll('.door');
+doors.forEach((door, index) => {
+    door.addEventListener('click', () => handleClick(index));
+});
+
+function updateCountdown() {
+    // 현재 한국 시간을 얻어오기
+    const now = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Seoul" }));
+
+    // 목표 날짜 설정 (예시: 2023년 1월 1일)
+    const targetDate = new Date("2023-12-25T00:00:00Z");
+
+    // 남은 시간 계산
+    const timeRemaining = targetDate - now;
+
+    // 시간, 분, 초 계산
+    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+    // 결과를 HTML에 업데이트
+    const countdownElement = document.getElementById('countdown');
+    countdownElement.innerHTML = `
+      <p>${days}일 ${hours}시간 ${minutes}분 ${seconds}초 남았습니다.</p>`;
+}
+
+function handleClick(index) {
+    // 현재 한국 시간을 얻어오기
+    const now = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Seoul" }));
+
+    // 각 날짜에 해당하는 날짜를 계산
+    const targetDate = new Date(2023, 11, index + 1); // 2023년 12월 1일부터 시작
+
+    // 현재 날짜가 목표 날짜 이후인지 확인
+    if (now.getTime() > targetDate.getTime()) {
+        // 여기에 모달을 열거나 특정 동작을 수행하는 코드 추가
+        alert('이벤트 캘린더를 엽니다.');
+
+        // CSS 적용
+        applyCss(index);
+    } else {
+        // 현재 날짜가 목표 날짜보다 이전인 경우 몇 일 후에 열 수 있다는 메시지를 표시
+        const daysRemaining = Math.ceil((targetDate - now) / (1000 * 60 * 60 * 24));
+        alert(`이 날짜는 ${daysRemaining}일 후에 열 수 있습니다.`);
+    }
+}
+
+function applyCss(index) {
+    // 날짜에 맞지 않으면 해당 CSS를 적용하지 않음
+    const door = document.querySelector(`.day-${index + 1} input[type="checkbox"]`);
+    door.classList.add('opened'); // opened는 특정 CSS 클래스 이름으로 변경 가능
+}
+
+// 페이지 로드 시에도 업데이트 수행
+updateCountdown();
+
+// 1초마다 업데이트
+setInterval(updateCountdown, 1000);
 
