@@ -1,58 +1,3 @@
-// // 모든 'door' 클래스 요소에 대한 참조를 가져옵니다.
-// const doors = document.querySelectorAll('.door');
-
-// // 각 'door'에 대하여 클릭 이벤트 리스너를 추가합니다.
-// doors.forEach(door => {
-//   door.addEventListener('click', () => {
-//     const backDiv = door.querySelector('.back');
-
-//     const style = window.getComputedStyle(backDiv);
-//     const backgroundImageUrl = style.backgroundImage.slice(4, -1).replace(/"/g, "");
-//     console.log(backgroundImageUrl)
-//     showModal(backgroundImageUrl);
-//   });
-// });
-
-// Function to display modal
-// function showModal(backgroundImageUrl) {
-//   // Create a modal element.
-//   const modal = document.createElement('div');
-//   modal.classList.add('modal');
-
-//   // Set up the modal content.
-//   const modalContent = document.createElement('div');
-
-//   const modalImgTag = document.createElement('img');
-//   modalImgTag.classList.add('modal-content');
-//   modalImgTag.style.backgroundImage = `url(${backgroundImageUrl})`
-//   modalContent.appendChild(modalImgTag);
-
-//   // const modalImage = document.createElement('img');
-//   // modalImage.src = backgroundImageUrl;
-//   // modalImage.classList.add('modal-image'); // Add class for styling
-
-//   const modalTextTag = document.createElement('p');
-//   modalTextTag.textContent = 'Your text goes here';
-//   modalContent.appendChild(modalTextTag)
-//   // modalTextTag.classList.add('modal-content'); // Add class for styling
-//   // Add content to the modal.
-
-//   modal.appendChild(modalContent)
-
-//   // Add animation to the modal.
-//   modalImgTag.classList.add('zoomIn');
-//   // Add the modal to the body.
-//   document.body.appendChild(modal);
-
-
-//   // Close the modal when you click outside the modal.
-//   modal.addEventListener('click', () => {
-//     document.body.removeChild(modal);
-//   });
-// }
-
-
-// ver2
 // 모달을 생성하고 설정하는 함수
 function showModal(imageUrl, text) {
     // 기존에 모달이 있다면 제거합니다.
@@ -120,7 +65,7 @@ doors.forEach(door => {
 
         const style = window.getComputedStyle(backDiv);
         const pTag = backDiv.querySelector('p')
-        const text = pTag.textContent
+        const text = modalMessageList[dayNumber-1]
 
         // const backgroundImageUrl = style.backgroundImage.slice(4, -1).replace(/"/g, "");
 
@@ -157,17 +102,46 @@ document.getElementById('shareButton').addEventListener('click', async () => {
 
 
 //   배경음 실행 관련
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const soundElement = document.querySelector('.sound');
     const stopElement = document.querySelector('.stop');
     const bgm = document.querySelector('.bgm');
-    
-    soundElement.addEventListener('click', function() {
-      bgm.play();
+
+    soundElement.addEventListener('click', function () {
+        bgm.play();
     });
-    
-    stopElement.addEventListener('click', function() {
-      bgm.pause();
-      bgm.currentTime = 0;
+
+    stopElement.addEventListener('click', function () {
+        bgm.pause();
+        bgm.currentTime = 0;
     });
-  });
+});
+
+
+const modalMessageList = [
+    "행복의 계절, 모두가 함께하는 24일!",
+    "이 12월, 행복한 순간이 우리를 감싸네요.",
+    "다 같이 즐겁게 보내는 24일, 행복이 가득합니다!",
+    "12월의 특별함을 모두와 함께 나누어요.",
+    "각자의 작은 행복이 모여 만드는 특별한 24일!",
+    "행복이라는 이름의 캘린더, 모두에게 열려 있어요.",
+    "함께 하는 즐거움, 24일 동안 계속되길 바랍니다.",
+    "12월은 행복한 순간들이 가득한 달이에요.",
+    "우리 모두에게 찾아온 특별한 행복의 계절!",
+    "매일 매일이 행복으로 가득찬 24일이 되길.",
+    "12월, 행복이 가득한 당신과 나누는 소중한 시간.",
+    "다 함께하는 24일, 행복이 여러 가지 모습으로 찾아올 거예요.",
+    "행복의 파도가 모두에게 찾아오는 특별한 24일!",
+    "12월, 각자의 작은 행복이 모여 큰 기쁨이 되길.",
+    "모두에게 행복이 넘치는 24일을 기대해봐요.",
+    "12월의 특별한 순간, 행복이 퍼져나가길.",
+    "모두에게 행복한 24일이 될 것을 기대합니다!",
+    "12월, 행복이 가득찬 마음으로 채워져 있는 시간.",
+    "다양한 행복이 모여 하나로 뭉쳐지는 24일!",
+    "12월, 당신과 나누는 특별한 행복의 순간들.",
+    "모두에게 다가오는 24일, 행복이 함께하기를!",
+    "12월의 행복한 기운이 모두를 감싸네요.",
+    "다 함께하는 24일, 행복한 느낌이 가득할 거예요.",
+    "12월, 모두에게 기쁨과 행복이 넘치는 달이에요."
+];
+

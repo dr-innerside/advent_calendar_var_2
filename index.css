@@ -1,3 +1,20 @@
+/* flex 속성 */
+.flex-row {
+  display: flex;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+.item-center {
+  align-items: center;
+  justify-content: center;
+}
+.item-baseline {
+  align-items: baseline;
+}
+
+
 body{
     background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/snow-bg.svg) no-repeat top center #82d8cb;
     background-size: cover;
@@ -10,7 +27,7 @@ body{
   /* title graphic */
   .title {  
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: center; 
   }
   
@@ -434,10 +451,6 @@ body{
       transform: rotateY(540deg);
   }
   
-  /* label:hover .door {
-    border-color: #385052;
-  } */
-  
   :checked + .door {
     transform: rotateY(180deg);
   }
@@ -661,24 +674,25 @@ body{
     margin: 0.5rem;
   }
 
-  .flex-row {
-    display: flex;
-  }
 
+  
   .copyright {
     width: 25rem;
     font-size: 1rem;
   }
-
+  
   button {
     margin: 0 0.5rem;
     width: 7rem;
   }
-
-  /* 카드 front 속성 설정 */
- .date-num {
-  position: absolute;
-  top: 12px;
-  left: 12px;  
- }
   
+  /* 카드 front 속성 설정 */
+  .date-num {
+    position: absolute;
+    top: 12px;
+    left: 12px;  
+  }
+  
+  .countdown {
+    color: white;
+  }
