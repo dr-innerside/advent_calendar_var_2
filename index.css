@@ -2,548 +2,719 @@
 .flex-row {
   display: flex;
 }
+
 .flex-col {
   display: flex;
   flex-direction: column;
 }
+
 .item-center {
   align-items: center;
   justify-content: center;
 }
+
 .item-baseline {
   align-items: baseline;
 }
 
+* {
+  font-family: 'Nanum Pen Script', cursive;
+}
 
-body{
-    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/snow-bg.svg) no-repeat top center #82d8cb;
-    background-size: cover;
-    /* width: 100vw; 뷰포트 너비의 100% */
-    /* height: 100vh; 뷰포트 높이의 100% */
-    /* margin: 0; */
-    /* padding: 0; */
-  }
-  
-  /* title graphic */
-  .title {  
-    display: flex;
-    align-items: baseline;
-    justify-content: center; 
-  }
-  
-  .title img {
-    width: 90%;
-    height: auto;
-  }
-  
-  /* mobile first grid layout */
+
+body {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/snow-bg.svg) no-repeat top center #82d8cb;
+  background-size: cover;
+  /* width: 100vw; 뷰포트 너비의 100% */
+  /* height: 100vh; 뷰포트 높이의 100% */
+  /* margin: 0; */
+  /* padding: 0; */
+}
+
+/* title graphic */
+.title {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.title img {
+  width: 90%;
+  height: auto;
+}
+
+/* mobile first grid layout */
+.grid-1 {
+  display: grid;
+  width: 90vw;
+  max-width: 900px;
+  margin: 2% auto;
+  z-index: 1;
+
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 25px;
+
+  grid-template-areas: "t        t       t"
+    "d23      d20     d12"
+    "d2       d14     d4"
+    "d5       d22     d16"
+    "d1       d7      d9"
+    "d10      d11     d18"
+    "d13      d3      d15"
+    "d6       d17     d8"
+    "d19      d24     d21";
+}
+
+/* media query */
+@media only screen and (min-width: 500px) {
+
   .grid-1 {
-    display: grid;
-    width: 90vw;
-    max-width: 900px;    
-    margin: 2% auto;
-    z-index: 1;
-    
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
-    grid-gap: 25px;
-    
-    grid-template-areas:    "t        t       t"
-                            "d23      d20     d12"
-                            "d2       d14     d4"
-                            "d5       d22     d16"
-                            "d1       d7      d9"
-                            "d10      d11     d18"
-                            "d13      d3      d15"
-                            "d6       d17     d8"
-                            "d19      d24     d21";
+    /* 너비를 기준으로 높이를 계산 */
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas: "t     t     t     d2      d7      d8"
+                        "t     t     t     d4      d11     d12"
+                        "t     t     t     d19     d9      d13"
+                        "d6    d1    d24   d24     d21     d20"
+                        "d17   d18   d24   d24     d5      d22"
+                        "d3    d23   d16   d14     d10     d15";
   }
+
+}
+
+
+/* individual items */
+.title {
+  grid-area: t;
+}
+
+.day-1 {
+  grid-area: d1;
+  background: url("image/frame/frame1.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.day-1 .back {
+  background-image: url("https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000101.png");
+
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.day-2 {
+  grid-area: d2;
+  background: url("image/frame/frame2.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.day-2 .back {
+  background-image: url("https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/003701.png");
+
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.day-3 {
+  grid-area: d3;
+  background: url("image/frame/frame3.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.day-3 .back {
+  background-image: url("https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/003702.png");
+
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.day-4 {
+  grid-area: d4;
+  background: url("image/frame/frame4.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.day-4 .back {
+  background-image: url("https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000201.png");
+
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.day-5 {
+  grid-area: d5;
+  background: url("image/frame/frame5.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.day-5 .back {
+  background-image: url("https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000301.png");
+
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.day-6 {
+  grid-area: d6;
+  background: url("image/frame/frame6.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.day-6 .back {
+  background-image: url("https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000302.png");
+
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.day-7 {
+  grid-area: d7;
+  background: url("image/frame/frame7.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.day-7 .back {
+  background-image: url("https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000303.png");
+
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.day-8 {
+  grid-area: d8;
+  background: url("image/frame/frame8.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.day-8 .back {
+  background-image: url("https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000401.png");
+
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.day-9 {
+  grid-area: d9;
+  background: url("image/frame/frame9.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.day-9 .back {
+  background-image: url("https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000501.png");
+
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.day-10 {
+  grid-area: d10;
+  background: url("image/frame/frame10.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.day-10 .back {
+  background-image: url("https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000601.png");
+
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.day-11 {
+  grid-area: d11;
+  background: url("image/frame/frame11.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.day-11 .back {
+  background-image: url("https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000602.png");
+
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.day-12 {
+  grid-area: d12;
+  background: url("image/frame/frame12.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.day-12 .back {
+  background-image: url("https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000603.png");
+
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.day-13 {
+  grid-area: d13;
+  background: url("image/frame/frame13.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.day-13 .back {
+  background-image: url("https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000604.png");
+
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.day-14 {
+  grid-area: d14;
+  background: url("image/frame/frame14.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.day-14 .back {
+  background-image: url("https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000701.png");
+
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.day-15 {
+  grid-area: d15;
+  background: url("image/frame/frame15.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.day-15 .back {
+  background-image: url("https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000801.png");
+
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.day-16 {
+  grid-area: d16;
+  background: url("image/frame/frame16.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.day-16 .back {
+  background-image: url("https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000901.png");
+
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.day-17 {
+  grid-area: d17;
+  background: url("image/frame/frame17.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.day-17 .back {
+  background-image: url("https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000902.png");
+
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.day-18 {
+  grid-area: d18;
+  background: url("image/frame/frame18.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.day-18 .back {
+  background-image: url("https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000903.png");
+
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.day-19 {
+  grid-area: d19;
+  background: url("image/frame/frame19.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.day-19 .back {
+  background-image: url("https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/001001.png");
+
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.day-20 {
+  grid-area: d20;
+  background: url("image/frame/frame20.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.day-20 .back {
+  background-image: url("https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/001101.png");
+
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.day-21 {
+  grid-area: d21;
+  background: url("image/frame/frame21.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.day-21 .back {
+  background-image: url("https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/001201.png");
+
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.day-22 {
+  grid-area: d22;
+  background: url("image/frame/frame22.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.day-22 .back {
+  background-image: url("https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/001202.png");
+
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.day-23 {
+  grid-area: d23;
+  background: url("image/frame/frame23.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.day-23 .back {
+  background-image: url("https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/001301.png");
+
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.day-24 {
+  grid-area: d24;
+  background: url("image/frame/frame24.png");
+  background-position: center;
+  background-size: cover;
+
+}
+
+.day-24 .back {
+  background-image: url("https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000604.png");
+
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.sillouette {
+  background-image: url("image/sillouete.png");
+  background-size: cover;
+  border-radius: 20px;
+}
+
+.back {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* font-family: 'Nanum Pen Script', cursive !important; */
+  background-size: 70% !important;
+}
+
+.seal-name {
+  box-shadow: 0.5px 0.5px rgb(219, 219, 219);
+  color: white;
+  width: 70% !important;
+  height: 10% !important;
+  margin: 4px 0 0 4px;
+  text-align: center;
+  border-radius: 30px !important;
+  overflow: hidden;
   
-  /* media query */
-  @media only screen and (min-width: 500px) {
-    
-    .grid-1 {
-      /* 너비를 기준으로 높이를 계산 */
-      grid-template-columns: repeat(6, 1fr);
-      grid-template-areas: "t     t     t     d2      d7      d8"
-                           "t     t     t     d4      d11     d12"
-                           "t     t     t     d19     d9      d13"
-                           "d6    d1    d24   d24     d21     d20"
-                           "d17   d18   d24   d24     d5      d22"
-                           "d3    d23   d16   d14     d10     d15";
-    }
-    
-  }
-  
-  
-  /* individual items */
-    .title {
-      grid-area: t;
-    }
-    .day-1 {
-    grid-area: d1;
-    background: url("image/frame/frame1.png");
-    background-position: center;
-    background-size: cover;
-    
-    }
-    .day-1 .back {
-      background-image: url("image/card/card-1.png");
-      background-position: center;
-      background-size: cover;
-      border-radius: 10px;
-    }
-    .day-2 {
-      grid-area: d2;
-      background: url("image/frame/frame2.png");
-      background-position: center;
-      background-size: cover;
-      
-    }
-    .day-2 .back {
-      background-image: url("image/card/card-2.png");
-      background-position: center;
-      background-size: cover;
-      border-radius: 10px;
-    }
-    .day-3 {
-      grid-area: d3;
-      background: url("image/frame/frame3.png");
-      background-position: center;
-      background-size: cover;
-      
-    }
-    .day-3 .back {
-      background-image: url("image/card/card-3.png");
-      background-position: center;
-      background-size: cover;
-      border-radius: 10px;
-    }
-    .day-4 {
-      grid-area: d4;
-      background: url("image/frame/frame4.png");
-      background-position: center;
-      background-size: cover;
-      
-    }
-    .day-4 .back {
-      background-image: url("image/card/card-4.png");
-      background-position: center;
-      background-size: cover;
-      border-radius: 10px;
-    }
-    .day-5 {
-      grid-area: d5;
-      background: url("image/frame/frame5.png");
-      background-position: center;
-      background-size: cover;
-      
-    }
-    .day-5 .back {
-      background-image: url("image/card/card-5.png");
-      background-position: center;
-      background-size: cover;
-      border-radius: 10px;
-    }
-    .day-6 {
-      grid-area: d6;
-      background: url("image/frame/frame6.png");
-      background-position: center;
-      background-size: cover;
-      
-    }
-    .day-6 .back {
-      background-image: url("image/card/card-6.png");
-      background-position: center;
-      background-size: cover;
-      border-radius: 10px;
-    }
-    .day-7 {
-      grid-area: d7;
-      background: url("image/frame/frame7.png");
-      background-position: center;
-      background-size: cover;
-      
-    }
-    .day-7 .back {
-      background-image: url("image/card/card-7.png");
-      background-position: center;
-      background-size: cover;
-      border-radius: 10px;
-    }
-    .day-8 {
-      grid-area: d8;
-      background: url("image/frame/frame8.png");
-      background-position: center;
-      background-size: cover;
-      
-    }
-    .day-8 .back {
-      background-image: url("image/card/card-8.png");
-      background-position: center;
-      background-size: cover;
-      border-radius: 10px;
-    }
-    .day-9 {
-      grid-area: d9;
-      background: url("image/frame/frame9.png");
-      background-position: center;
-      background-size: cover;
-      
-    }
-    .day-9 .back {
-      background-image: url("image/card/card-9.png");
-      background-position: center;
-      background-size: cover;
-      border-radius: 10px;
-    }
-    .day-10 {
-      grid-area: d10;
-      background: url("image/frame/frame10.png");
-      background-position: center;
-      background-size: cover;
-      
-    }
-    .day-10 .back {
-      background-image: url("image/card/card-10.png");
-      background-position: center;
-      background-size: cover;
-      border-radius: 10px;
-    }
-    .day-11 {
-      grid-area: d11;
-      background: url("image/frame/frame11.png");
-      background-position: center;
-      background-size: cover;
-      
-    }
-    .day-11 .back {
-      background-image: url("image/card/card-11.png");
-      background-position: center;
-      background-size: cover;
-      border-radius: 10px;
-    }
-    .day-12 {
-      grid-area: d12;
-      background: url("image/frame/frame12.png");
-      background-position: center;
-      background-size: cover;
-      
-    }
-    .day-12 .back {
-      background-image: url("image/card/card-12.png");
-      background-position: center;
-      background-size: cover;
-      border-radius: 10px;
-    }
-    .day-13 {
-      grid-area: d13;
-      background: url("image/frame/frame13.png");
-      background-position: center;
-      background-size: cover;
-      
-    }
-    .day-13 .back {
-      background-image: url("image/card/card-13.png");
-      background-position: center;
-      background-size: cover;
-      border-radius: 10px;
-    }
-    .day-14 {
-      grid-area: d14;
-      background: url("image/frame/frame14.png");
-      background-position: center;
-      background-size: cover;
-      
-    }
-    .day-14 .back {
-      background-image: url("image/card/card-14.png");
-      background-position: center;
-      background-size: cover;
-      border-radius: 10px;
-    }
-    .day-15 {
-      grid-area: d15;
-      background: url("image/frame/frame15.png");
-      background-position: center;
-      background-size: cover;
-      
-    }
-    .day-15 .back {
-      background-image: url("image/card/card-15.png");
-      background-position: center;
-      background-size: cover;
-      border-radius: 10px;
-    }
-    .day-16 {
-      grid-area: d16;
-      background: url("image/frame/frame16.png");
-      background-position: center;
-      background-size: cover;
-      
-    }
-    .day-16 .back {
-      background-image: url("image/card/card-16.png");
-      background-position: center;
-      background-size: cover;
-      border-radius: 10px;
-    }
-    .day-17 {
-      grid-area: d17;
-      background: url("image/frame/frame17.png");
-      background-position: center;
-      background-size: cover;
-      
-    }
-    .day-17 .back {
-      background-image: url("image/card/card-17.png");
-      background-position: center;
-      background-size: cover;
-      border-radius: 10px;
-    }
-    .day-18 {
-      grid-area: d18;
-      background: url("image/frame/frame18.png");
-      background-position: center;
-      background-size: cover;
-      
-    }
-    .day-18 .back {
-      background-image: url("image/card/card-18.png");
-      background-position: center;
-      background-size: cover;
-      border-radius: 10px;
-    }
-    .day-19 {
-      grid-area: d19;
-      background: url("image/frame/frame19.png");
-      background-position: center;
-      background-size: cover;
-      
-    }
-    .day-19 .back {
-      background-image: url("image/card/card-19.png");
-      background-position: center;
-      background-size: cover;
-      border-radius: 10px;
-    }
-    .day-20 {
-      grid-area: d20;
-      background: url("image/frame/frame20.png");
-      background-position: center;
-      background-size: cover;
-      
-    }
-    .day-20 .back {
-      background-image: url("image/card/card-20.png");
-      background-position: center;
-      background-size: cover;
-      border-radius: 10px;
-    }
-    .day-21 {
-      grid-area: d21;
-      background: url("image/frame/frame21.png");
-      background-position: center;
-      background-size: cover;
-      
-    }
-    .day-21 .back {
-      background-image: url("image/card/card-21.png");
-      background-position: center;
-      background-size: cover;
-      border-radius: 10px;
-    }
-    .day-22 {
-      grid-area: d22;
-      background: url("image/frame/frame22.png");
-      background-position: center;
-      background-size: cover;
-      
-    }
-    .day-22 .back {
-      background-image: url("image/card/card-22.png");
-      background-position: center;
-      background-size: cover;
-      border-radius: 10px;
-    }
-    .day-23 {
-      grid-area: d23;
-      background: url("image/frame/frame23.png");
-      background-position: center;
-      background-size: cover;
-      
-    }
-    .day-23 .back {
-      background-image: url("image/card/card-23.png");
-      background-position: center;
-      background-size: cover;
-      border-radius: 10px;
-    }
-    .day-24 {
-      grid-area: d24;
-      background: url("image/frame/frame24.png");
-      background-position: center;
-      background-size: cover;
-      
-    }
-    .day-24 .back {
-      background-image: url("image/card/card-24.png");
-      background-position: center;
-      background-size: cover;
-      border-radius: 10px;
-    }
-  
-  
-  /* door styles */
-  
-  .grid-1 input {
-    display: none;
-  }
-  
-  label {
-    perspective: 1000px;
-    transform-style: preserve-3d;
-    cursor: pointer;
-  
-    display: flex;
-    min-height: 100%;
-    width: 100%;
-    height: 120px;
-  }
-  
-  .door {
-    width: 100%;
-    transform-style: preserve-3d;
-    transition: all 300ms;
-    /* border: 2px dashed transparent; */
-    /* border: 2px solid #3e5f9f; */
-    border-radius: 10px;
-  }
-  
-  .door div {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    backface-visibility: hidden;
-    
-    border-radius: 6px;
-  
-    /* display: flex;
+  display: flex;
+  flex: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.seal-product {
+  box-shadow: 0.5px 0.5px rgb(219, 219, 219);
+  position: absolute !important;
+  bottom: 10px !important;
+  color: rgb(173, 173, 173) !important;
+  width: 40% !important;
+  height: 10% !important;
+  right: 10px !important;
+  font-size: 1rem !important;
+}
+
+.poke-idx, .poke-name, .seal-product {
+  font-family: 'Nanum Pen Script', cursive !important;
+}
+
+.poke-idx {
+  width: 35%;
+  background-color: #E8334E;
+  color: black;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  z-index: 2;
+}
+
+.poke-name {
+  color: black;
+  margin-left: 2px;
+  font-size: 1rem;
+}
+
+
+/* door styles */
+
+.grid-1 input {
+  display: none;
+}
+
+label {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  cursor: pointer;
+
+  display: flex;
+  min-height: 100%;
+  width: 100%;
+  height: 120px;
+}
+
+.door {
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: all 300ms;
+  /* border: 2px dashed transparent; */
+  /* border: 2px solid #3e5f9f; */
+  border-radius: 10px;
+}
+
+.door div {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+
+  border-radius: 6px;
+
+  /* display: flex;
     align-items: center;
     justify-content: center;
      */
-    /* typography */
-    font-family: 'Kalam', cursive;
-    /* color: #385052; */
-    color: white;
-    font-size: 1.2em;
-    font-weight: bold;
-    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2);
+  /* typography */
+  font-family: 'Kalam', cursive;
+  /* color: #385052; */
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2);
 
-    /* left: 12px;
+  /* left: 12px;
     top: 12px; */
-  }
-  
-  .door .back{
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      /* background-color: #2e313d; */
-      transform: rotateY(540deg);
-  }
-  
-  :checked + .door {
-    transform: rotateY(180deg);
-  }
-
-  /* 날짜에 맞다면 적용되는 상호작용 css */
-  .opened:checked + .door {
-    transform: rotateY(180deg);
 }
-  
-  /* footer styles */
-  footer {
-    text-align: center;
-    padding: 2em 0;
-    /* background-color: rgba(0, 0, 0, 0.6); */
-    color: white;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }  
-  
-  button {
-    padding: 0.8em;
-    font-size: 100%; /* 상속받은 기본 폰트 크기를 사용 */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  
-    /* 화면 크기에 따라 버튼 크기 조정 */
-    width: 80%; /* 대부분의 화면에서 버튼 너비 */
-    height: 4rem;
-    max-width: 150px; /* 버튼의 최대 너비 제한 */
-    margin: 10px auto; /* 중앙 정렬을 위한 자동 마진 */
-  }
-  
-  #shareButton {
-    background-color: #fff;
-    color: #e8344e;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  
+.door .back {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  /* background-color: #2e313d; */
+  transform: rotateY(540deg);
+}
+
+:checked+.door {
+  transform: rotateY(180deg);
+}
+
+/* 날짜에 맞다면 적용되는 상호작용 css */
+.opened:checked+.door {
+  transform: rotateY(180deg);
+}
+
+/* footer styles */
+footer {
+  text-align: center;
+  padding: 2em 0;
+  /* background-color: rgba(0, 0, 0, 0.6); */
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  padding: 0.8em;
+  font-size: 100%;
+  /* 상속받은 기본 폰트 크기를 사용 */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  /* 화면 크기에 따라 버튼 크기 조정 */
+  width: 80%;
+  /* 대부분의 화면에서 버튼 너비 */
+  height: 4rem;
+  max-width: 150px;
+  /* 버튼의 최대 너비 제한 */
+  margin: 10px auto;
+  /* 중앙 정렬을 위한 자동 마진 */
+}
+
+#shareButton {
+  background-color: #fff;
+  color: #e8344e;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+#studyButton {
+  background-color: #E8334E;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+#studyButton a {
+  color: white;
+  text-decoration: none;
+}
+
+
+/* 화면 크기가 작을 때의 스타일 */
+@media (max-width: 768px) {
+
+  #shareButton,
   #studyButton {
-    background-color: #E8334E;
-    color: white;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    width: 90%;
+    /* 더 작은 화면에서 버튼 너비를 늘림 */
+    padding: 0.75em;
+    font-size: 90%;
+    /* 작은 화면에서 폰트 크기 줄임 */
   }
-  
-    #studyButton a {
-      color:white;
-      text-decoration: none;
-    }
-  
-  
-  /* 화면 크기가 작을 때의 스타일 */
-  @media (max-width: 768px) {
-    #shareButton, #studyButton {
-      width: 90%; /* 더 작은 화면에서 버튼 너비를 늘림 */
-      padding: 0.75em;
-      font-size: 90%; /* 작은 화면에서 폰트 크기 줄임 */
-    }
-  }
-  
-  /* 호버 효과는 모든 화면 크기에 적용 */
-  #shareButton:hover {
-    background-color: #fae1e1;
-  }
-  
-  /* 호버 효과는 모든 화면 크기에 적용 */
-  #studyButton:hover {
-    background-color: #bc2a40;
-  }
-  
-  /* 모달 기본 스타일 */
-  .modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    flex-direction: column;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-  }
-  
-  /* 모달 컨텐트 기본 스타일 */
-  /* .modal-content {
+}
+
+/* 호버 효과는 모든 화면 크기에 적용 */
+#shareButton:hover {
+  background-color: #fae1e1;
+}
+
+/* 호버 효과는 모든 화면 크기에 적용 */
+#studyButton:hover {
+  background-color: #bc2a40;
+}
+
+/* 모달 기본 스타일 */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+/* 모달 컨텐트 기본 스타일 */
+/* .modal-content {
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
@@ -556,149 +727,162 @@ body{
     text-align: center;
   
   } */
-  
-  /* 확대 및 회전 애니메이션 */
-  @keyframes zoomAndRotate {
-    from {
-      transform: scale(0) rotateY(0deg); 
-    }
-    to {
-      transform: scale(1) rotateY(360deg); 
-    }
-  }
-  
-  /* 애니메이션 적용 */
-  .zoomIn {
-    animation: zoomAndRotate 0.5s ease forwards; 
-  }
-  
-  
-  .hidden {
-    visibility: hidden;
-  }   
-  
-  /* ver2 */
-  .modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    flex-direction: column;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-  }
-  
-  .modal-content {
-    width: 340px;
-    height: 347px;
-    padding: 20px;
-    background-color: white; /* 배경색을 지정합니다. */
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    overflow: hidden; /* 내용이 넘칠 경우 숨깁니다. */
-    box-sizing: border-box;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+/* 확대 및 회전 애니메이션 */
+@keyframes zoomAndRotate {
+  from {
+    transform: scale(0) rotateY(0deg);
   }
-  
-  /* 이미지와 텍스트가 있는 카드를 위한 스타일 */
-  .modal-content div {
-    /* border-top-left-radius: 4px; 
+
+  to {
+    transform: scale(1) rotateY(360deg);
+  }
+}
+
+/* 애니메이션 적용 */
+.zoomIn {
+  animation: zoomAndRotate 0.5s ease forwards;
+}
+
+
+.hidden {
+  visibility: hidden;
+}
+
+/* ver2 */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+.modal-content {
+  width: 340px;
+  height: 347px;
+  padding: 20px;
+  background-color: white;
+  /* 배경색을 지정합니다. */
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  overflow: hidden;
+  /* 내용이 넘칠 경우 숨깁니다. */
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 이미지와 텍스트가 있는 카드를 위한 스타일 */
+.modal-content div {
+  /* border-top-left-radius: 4px; 
     border-top-right-radius: 4px; */
-    /* background-image: url("image/modalImg.png"); */
-    background-size: cover;
-    background-position: center;
-    border-radius: 12px;
-  }
-  
-  .modal-content p {
-    width: 300px;
-    /* background-color: #2e313d;  */
-    color: black; /* 텍스트 색상을 지정합니다. */
-    margin-top: 30px; /* 마진을 제거합니다. */
-    margin-bottom: 0;
-    /* padding: 10px; 패딩을 추가합니다. */
-    border-bottom-left-radius: 4px; /* 텍스트 하단에 둥근 모서리를 적용합니다. */
-    border-bottom-right-radius: 4px;
-    font-weight: bold;
-    font-size: 17px;
-    word-break: keep-all;
-  }
-  
-  /* 캘린더 섹션 */
-  section {
-    /* background-color: white; */
-    padding: 1rem;
-  }
+  /* background-image: url("image/modalImg.png"); */
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+}
 
-  /* 캘린더 눈 내리기 */
-  body {
-    background-color: #001633;
-    background-image: url("image/bg-raw.png");
-    background-size: cover;
-    /* background-position: bottom; */
-    margin: 0 !important;
-  }
+.modal-content p {
+  width: 300px;
+  /* background-color: #2e313d;  */
+  color: black;
+  /* 텍스트 색상을 지정합니다. */
+  margin-top: 30px;
+  /* 마진을 제거합니다. */
+  margin-bottom: 0;
+  /* padding: 10px; 패딩을 추가합니다. */
+  border-bottom-left-radius: 4px;
+  /* 텍스트 하단에 둥근 모서리를 적용합니다. */
+  border-bottom-right-radius: 4px;
+  font-weight: bold;
+  font-size: 17px;
+  word-break: keep-all;
+}
 
+/* 캘린더 섹션 */
+section {
+  /* background-color: white; */
+  padding: 1rem;
+}
 
-  /* 배경음 h1 관련 */
-  .sound::before {  
-    transform: scaleX(0);
-    transform-origin: bottom right;
-  }
-  
-  .sound:hover::before {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
-  
-  .sound::before {
-    content: " ";
-    display: block;
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-    inset: 0 0 0 0;
-    background: rgba(255,255,255,0.7);
-    border-radius: 12px;
-    z-index: -1;
-    transition: transform .3s ease;
-  }
-  
-  .sound {
-    position: relative;
-    font-size: 2rem;
-    width: 3rem;
-    color: white;
-    text-align: center;
-    margin: 0.5rem;
-  }
+/* 캘린더 눈 내리기 */
+body {
+  background-color: #001633;
+  background-image: url("image/bg-raw.png");
+  background-size: cover;
+  /* background-position: bottom; */
+  margin: 0 !important;
+}
 
 
-  
-  .copyright {
-    width: 25rem;
-    font-size: 1rem;
-  }
-  
-  button {
-    margin: 0 0.5rem;
-    width: 7rem;
-  }
-  
-  /* 카드 front 속성 설정 */
-  .date-num {
-    position: absolute;
-    top: 12px;
-    left: 12px;  
-  }
-  
-  .countdown {
-    color: white;
-  }
+/* 배경음 h1 관련 */
+.sound::before {
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+.sound:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.sound::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  inset: 0 0 0 0;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  z-index: -1;
+  transition: transform .3s ease;
+}
+
+.sound {
+  position: relative;
+  font-size: 2rem;
+  width: 3rem;
+  color: white;
+  text-align: center;
+  margin: 0.5rem;
+}
+
+
+
+.copyright {
+  width: 25rem;
+  font-size: 1rem;
+}
+
+button {
+  margin: 0 0.5rem;
+  width: 7rem;
+}
+
+/* 카드 front 속성 설정 */
+.date-num {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+
+.countdown {
+  color: white;
+}
+
+body {
+  background-image: url("https://images3.alphacoders.com/238/238187.jpg");
+}
