@@ -18,7 +18,7 @@
 }
 
 * {
-  font-family: 'Nanum Pen Script', cursive;
+  font-family: 'Hi Melody', sans-serif;
 }
 
 
@@ -492,7 +492,7 @@ body {
 }
 
 .sillouette {
-  background-image: url("image/sillouete.png");
+  background-image: url("image/icon.png");
   background-size: cover;
   border-radius: 20px;
 }
@@ -880,5 +880,6 @@ button {
 }
 
 body {
-  background-image: url("https://wallup.net/wp-content/uploads/2019/10/110184-pokemon-748x468.jpg");
+  background-image: url("image/bg.png");
+  background-size: cover;
 }
