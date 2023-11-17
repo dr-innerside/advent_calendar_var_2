@@ -167,7 +167,7 @@ function handleClick(index) {
     const text = modalMessageList[index]
 
     // showModal 함수를 호출하여 모달을 표시합니다.
-    showModal(imageUrl, text);
+    // showModal(imageUrl, text);
 }
 
 
