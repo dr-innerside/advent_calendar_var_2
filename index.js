@@ -117,7 +117,12 @@ const modalMessageList = [
 // 전역에서 한 번만 실행되도록 클릭 이벤트 리스너를 등록
 const doors = document.querySelectorAll('.door');
 doors.forEach((door, index) => {
-    door.addEventListener('click', () => handleClick(index));
+    door.addEventListener('click', () => {
+        let dayDiv = door.parentNode.parentNode 
+        dayDiv.classList.add('d-none')
+        handleClick(index);
+    }
+    );
 });
 
 // 목표 날짜 설정 (예시: 2023년 1월 1일)
@@ -162,7 +167,7 @@ function handleClick(index) {
     const text = modalMessageList[index]
 
     // showModal 함수를 호출하여 모달을 표시합니다.
-    // showModal(imageUrl, text);
+    showModal(imageUrl, text);
 }
 
 
